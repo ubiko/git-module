@@ -126,7 +126,7 @@ func (tes Entries) GetCommitsInfo(commit *Commit, treePath string) ([][]interfac
 	// Length of taskChan determines how many goroutines (subprocesses) can run at the same time.
 	// The length of revChan should be same as taskChan so goroutines whoever finished job can
 	// exit as early as possible, only store data inside channel.
-	taskChan := make(chan bool, 10)
+	taskChan := make(chan bool, 2)
 	revChan := make(chan commitInfo, 10)
 	doneChan := make(chan error)
 
